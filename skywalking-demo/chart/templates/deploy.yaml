@@ -1,0 +1,55 @@
+{{- $versions := .Values.versions }}
+{{- $namespace := .Release.Namespace }}
+{{- $replicas := .Values.replicas }}
+{{- $image := .Values.image }}
+{{- $skywalking :=.Values.skywalking }}
+{{- $serviceList := .Values.services | join "," }}
+{{- range $service := .Values.services }}
+{{- range $index, $version := $versions }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ $service }}
+    version: {{ $version }}
+  name: {{ $service }}-{{ $version }}
+  namespace: {{ $namespace }}
+spec:
+  replicas: {{ $replicas }}
+  selector:
+    matchLabels:
+      app: {{ $service }}
+      version: {{ $version }}
+  template:
+    metadata:
+      labels:
+        sidecar.istio.io/inject: "true"
+        app: {{ $service }}
+        version: {{ $version }}
+    spec:
+      containers:
+      - args:
+        - --service={{ $service }}
+        - --serviceList={{ $serviceList }}
+        env:
+        {{- if $skywalking.enable }}
+        - name: SW_AGENT_NAME
+          value: {{ $service }}-{{ $namespace }}
+# go
+        - name: SW_AGENT_REPORTER_GRPC_BACKEND_SERVICE
+          value: {{ $skywalking.service }}
+# java、python、nodejs
+        - name: SW_AGENT_COLLECTOR_BACKEND_SERVICES
+          value: {{ $skywalking.service }}
+        {{- end }}          
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        image: {{ $image }}
+        imagePullPolicy: Always
+        name: {{ $service }}-{{ $version }}
+---
+{{- end }}
+{{- end }}

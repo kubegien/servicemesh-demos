@@ -1,0 +1,11 @@
+services:
+  - servicea
+  - serviceb
+versions:
+  - v1
+  - v2
+image: 10.64.17.48:30085/demo/k8s-service:latest
+replicas: 1
+skywalking:
+  enable: true
+  service: skywalking-oap.istio-system.svc.cluster.local:11800
