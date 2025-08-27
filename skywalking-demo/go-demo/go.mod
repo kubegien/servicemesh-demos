@@ -3,7 +3,8 @@ module go-demo
 go 1.18
 
 require (
-	github.com/apache/skywalking-go v0.4.0
+	github.com/apache/skywalking-go v0.6.0
+	github.com/apache/skywalking-go/toolkit v0.6.0
 	github.com/gin-gonic/gin v1.9.1
 )
 

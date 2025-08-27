@@ -11,6 +11,7 @@ import (
 	"time"
 
 	_ "github.com/apache/skywalking-go"
+	"github.com/apache/skywalking-go/toolkit/logging"
 	"github.com/gin-gonic/gin"
 )
 
@@ -58,6 +59,7 @@ func main() {
 
 	r := gin.Default()
 	r.Any("/*path", func(c *gin.Context) {
+		logging.Error("调用pod", "podName", os.Getenv("POD_NAME"))
 		time.Sleep(time.Duration(serverHandleTime) * time.Second)
 		if printHeader {
 			log.Printf("request header =======")

@@ -3,8 +3,10 @@ cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMT
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
-github.com/apache/skywalking-go v0.4.0 h1:3Ql+BeWg+2KbQgB/nRMf1T9ht7F1lvmrBPi+pDgyXzQ=
-github.com/apache/skywalking-go v0.4.0/go.mod h1:r2FrabK/0XftMyosqre7WFZvZ1mEOVssJROo8xgcEW8=
+github.com/apache/skywalking-go v0.6.0 h1:/VY7woAfpnEykyuH8ub1NbFDaVVlTgCvPUl9nnBrjNk=
+github.com/apache/skywalking-go v0.6.0/go.mod h1:vrfjgJ+a1R4N8v3s/1w7IuZrQoXsREnuZUQef+bzJ9c=
+github.com/apache/skywalking-go/toolkit v0.6.0 h1:fa1QqE8CMktdF3OC9sUTkSTPsIp1irSFQb8nb+oSEr8=
+github.com/apache/skywalking-go/toolkit v0.6.0/go.mod h1:PC/h/pt2lkgJhkSA9PtuVIxi2CjD41uSRIglnVTU07A=
 github.com/bytedance/sonic v1.5.0/go.mod h1:ED5hyg4y6t3/9Ku1R6dU/4KyJ48DZ4jPhfY1O2AihPM=
 github.com/bytedance/sonic v1.9.1 h1:6iJ6NqdoxCDr6mbY8h18oSO+cShGSMRGCEo7F2h0x8s=
 github.com/bytedance/sonic v1.9.1/go.mod h1:i736AoUSYt75HyZLoJW9ERYxcy6eaN6h4BZXU064P/U=
